@@ -1,0 +1,310 @@
+/**************************************************
+    GENERAL STYLES
+ **************************************************/
+
+/* Custom Properties:
+https://developer.mozilla.org/en-US/docs/Web/CSS/--* */
+:root {
+    /* Palette */
+    --primary-col: #0084fd;
+    --primary-col-light: #b5ddff;
+    --secondary-col: #9792e4;
+    --secondary-col-light: #d5d4f4;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/**********************************************************
+    UTILITIES
+ **********************************************************/
+
+/* DEBUG */
+.box-debug {
+    height: 80px;
+    padding: 1rem;
+    background: var(--primary-col-light);
+}
+.box-debug2 {
+    height: 80px;
+    padding: 1rem;
+    color: #000;
+    background: var(--secondary-col-light);
+}
+
+/* LAYOUT */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* SPACING */
+.px-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/****************************************************
+    SITE SECTIONS
+ ****************************************************/
+
+/*
+HEADER
+*/
+.site-header {
+    margin-bottom: 50px;
+    background: var(--primary-col);
+}
+
+/*
+INTRO SECTION
+*/
+#intro {
+    padding: 0 2rem;
+}
+
+#intro .card {
+    margin-bottom: 1.5rem;
+    /* DEBUG */
+    background: #b5ddff;
+}
+
+/*
+PLANNING SECTION
+*/
+#planning {
+    margin-top: 5rem;
+    padding: 4rem 2rem;
+    background: var(--secondary-col);
+}
+
+#planning .card {
+    margin-top: 2rem;
+    padding: 2rem 0;
+}
+
+/*
+TESTIMONIALS SECTION
+*/
+#testimonials {
+    padding: 4rem 2rem 5rem;
+}
+
+#testimonials .card {
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    background: var(--secondary-col);
+}
+
+#testimonials .card-image {
+    width: 200px;
+    margin: 0 auto 1rem;
+}
+
+/*
+BENEFITS SECTION
+*/
+#benefits {
+    margin-bottom: 5rem;
+    padding: 4rem 2rem 2rem;
+    background: var(--secondary-col);
+}
+
+#benefits .card {
+    margin-bottom: 2rem;
+}
+
+/*
+ABOUT SECTION
+*/
+#about {
+    padding: 0 2rem 5rem;
+}
+
+/*
+BOTTOM BANNER SECTION
+*/
+#bottom-banner {
+    padding: 4rem 2rem;
+    background: var(--secondary-col);
+    /* Debug */
+    height: 400px;
+}
+
+/* FOOTER */
+.site-footer {
+    padding: 2.5rem 2rem;
+    font-size: 0.875rem;
+    background: #333;
+    color: #fff;
+    /* Debug */
+    height: 200px;
+}
+
+/*******************************************************
+    RESPONSIVE
+ *******************************************************/
+
+/* Tablet */
+@media all and (min-width: 768px) {
+    /* UTILITIES */
+    .container {
+        max-width: 750px;
+    }
+
+    /* INTRO SECTION */
+    #intro .cards {
+        display: flex;
+        flex-wrap: wrap;
+        /* Recupero gutters card */
+        margin-left: -.75rem;
+        margin-right: -.75rem;
+    }
+
+    #intro .card {
+        width: calc(33.333% - 1.5rem);
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+        padding: 2rem 1.5rem;
+    }
+
+    #intro .card:first-child {
+        width: calc(66.666% - 1.5rem);
+    }
+
+    /* PLANNING SECTION */
+    #planning {
+        padding-top: 8rem;
+    }
+
+    /* TESTIMONIALS SECTION */
+    #testimonials .card {
+        display: flex;
+    }
+
+    #testimonials .card-image {
+        flex-shrink: 0;
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+
+    #testimonials .card-contents {
+        flex-grow: 1;
+    }
+
+    /* BENEFITS SECTION */
+    #benefits .cards {
+        display: flex;
+        flex-wrap: wrap;
+        /* Recupero gutters card */
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    #benefits .cards .card {
+        width: calc(50% - 2rem);
+        margin: 0 1rem 2rem;
+    }
+
+    /* ABOUT SECTION */
+    #about .columns {
+        display: flex;
+        /* adatta spaziatura su bordi con gutters colonne */
+        padding: 0 0 1rem;
+    }
+
+    #about .col:first-child,
+    #about .col:last-child {
+        margin: 0 2rem;
+    }
+    #about .col:first-child {
+        width: calc(60% - 4rem);
+    }
+    #about .col:last-child {
+        width: calc(40% - 4rem);
+    }
+}
+
+/* Desktop */
+@media all and (min-width: 992px) {
+    /* UTILITIES */
+    .container {
+        max-width: 940px;
+    }
+
+    /* INTRO SECTION */
+    #intro .card:first-child {
+        display: flex;
+    }
+
+    #intro .card:first-child > * {
+        width: 50%;
+    }
+
+    /* PLANNING SECTION */
+    #planning .columns {
+        display: flex;
+    }
+
+    #planning .col {
+        width: calc(50% - 4rem);
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    #planning .col:last-child {
+        align-self: flex-end;
+    }
+
+    /* TESTIMONIALS SECTION */
+    #testimonials .card-image {
+        margin-right: 4rem;
+    }
+
+    /* BENEFITS SECTION */
+    #benefits .cards .card {
+        width: calc(100% / 3 - 2rem);
+        margin: 0 1rem 2rem;
+    }
+
+    /* ABOUT SECTION */
+    #about .col:first-child,
+    #about .col:last-child {
+        margin: 0 3rem;
+    }
+    #about .col:first-child {
+        width: calc(70% - 6rem);
+    }
+    #about .col:last-child {
+        width: calc(30% - 6rem);
+    }
+}
+
+/* Large Desktop */
+@media all and (min-width: 1200px) {
+    /* UTILITIES */
+    .container {
+        max-width: 1140px;
+    }
+}
